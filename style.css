@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.game-start {
+    display: flex;
+    flex-direction: column;
+    margin: 100px;
+}
+.line {
+    display: flex;
+}
+.key {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 3px;
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 2px solid lightgray;
+    background-color: lightgray;
+    border-color: black;
+    font-size: large;
+}
+
+.key:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+.hidden {
+    display: none;
+}
