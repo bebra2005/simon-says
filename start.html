@@ -7,7 +7,7 @@
     <title>Simon Says</title>
 </head>
 <body>
-    <div class="game-start">
+    <div class="game-start hidden" >
         <h1>Simon-Says</h1>
         <select name="lvl" id="lvl">
             <option value="easy">Easy 0-9</option>
@@ -15,6 +15,18 @@
             <option value="hard">Hard 0-9 A-Z</option>
         </select>
         <button id="play">Play</button>
+    </div>
+
+    <div class="game-screen hidden" >
+        <div class="level-ind">level: <span id="currentLvl">easy</span></div>
+        <div class="round-ind">round: <span id="currentRound">1</span></div>
+
+        <div class="input" id="input" readonly></div>
+
+        <div class="game-controls">
+            <button id="repeatBtn" disabled>Repeat Sequence</button>
+            <button id="newGameBtn">New Game</button>
+        </div>
     </div>
     <div class="key-board-Easy hidden">
         <div class="line">
