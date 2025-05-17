@@ -47,7 +47,7 @@ function setupEventListeners() {
     playBtn.addEventListener('click', startGame);
     repeatBtn.addEventListener('click', repeatSequence);
     newGameBtn.addEventListener('click', resetGame);
-    
+
     document.querySelectorAll('.key').forEach(key => {
         key.addEventListener('click', () => {
             if (!isSimulating && document.querySelector('.game-screen').classList.contains('hidden') === false) {
@@ -55,6 +55,16 @@ function setupEventListeners() {
             }
         });
     });
+
+    document.addEventListener('keydown', (event) => {
+        if (!isSimulating && document.querySelector('.game-screen').classList.contains('hidden') === false) {
+            const key = event.key.toUpperCase();
+            const availableKeys = Array.from(document.querySelectorAll('.key')).map(el => el.textContent);
+            if (availableKeys.includes(key)) {
+                handleKeyPress(key);
+            }
+        }
+    })
 }
 
 function startGame() {
@@ -156,11 +166,16 @@ function nextRound() {
     document.getElementById('currentRound').textContent = currentRound;
     userInput = [];
     sequenceInput.textContent = '';
-    
-    setTimeout(() => {
-        generateSequence();
-        showSequence();
-    }, 1000);
+    if (currentRound < 6) {
+        setTimeout(() => {
+            generateSequence();
+            showSequence();
+        }, 1000);
+    }
+    if (currentRound === 6) {
+        document.querySelector('.game-screen').classList.add('hidden');
+        document.querySelector('.victory-screen').classList.remove('hidden');
+    }
 }
 
 function gameOver() {

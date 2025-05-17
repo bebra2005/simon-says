@@ -43,3 +43,9 @@ body {
     margin: 10px 0;
     min-height: 20px;
   }
+
+  .key.active {
+    background-color: #ff0000; /* Жёлтая подсветка */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
